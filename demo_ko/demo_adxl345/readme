@@ -1,0 +1,7 @@
+ADXL345 
+     CS连接imx6ull P4的17
+     SCL              18
+     SDO              19
+     SDA              20
+     GND              47
+     VCC              48  

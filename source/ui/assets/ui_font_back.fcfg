@@ -1,0 +1,16 @@
+{
+  "codename": "back",
+  "ttf_path": "/assets/songti.ttf",
+  "bin_path": "/assets\\ui_font_back.bin",
+  "c_path": "/assets\\ui_font_back.c",
+  "cfg_path": "/assets\\ui_font_back.fcfg",
+  "size": 20,
+  "bpp": 1,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "返回",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}

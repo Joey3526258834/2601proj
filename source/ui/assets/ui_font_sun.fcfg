@@ -1,0 +1,16 @@
+{
+  "codename": "sun",
+  "ttf_path": "/assets/songti.ttf",
+  "bin_path": "/assets\\ui_font_sun.bin",
+  "c_path": "/assets\\ui_font_sun.c",
+  "cfg_path": "/assets\\ui_font_sun.fcfg",
+  "size": 20,
+  "bpp": 1,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "光照强度：",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}

@@ -1,0 +1,16 @@
+{
+  "codename": "text",
+  "ttf_path": "/assets/songti.ttf",
+  "bin_path": "/assets\\ui_font_text.bin",
+  "c_path": "/assets\\ui_font_text.c",
+  "cfg_path": "/assets\\ui_font_text.fcfg",
+  "size": 30,
+  "bpp": 4,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "秦岭智能生态监测系统",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}

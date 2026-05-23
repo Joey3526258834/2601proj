@@ -1,0 +1,16 @@
+{
+  "codename": "eyes",
+  "ttf_path": "/assets/songti.ttf",
+  "bin_path": "/assets\\ui_font_eyes.bin",
+  "c_path": "/assets\\ui_font_eyes.c",
+  "cfg_path": "/assets\\ui_font_eyes.fcfg",
+  "size": 20,
+  "bpp": 1,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "监控",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}

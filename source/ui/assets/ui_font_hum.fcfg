@@ -1,0 +1,16 @@
+{
+  "codename": "hum",
+  "ttf_path": "/assets/songti.ttf",
+  "bin_path": "/assets\\ui_font_hum.bin",
+  "c_path": "/assets\\ui_font_hum.c",
+  "cfg_path": "/assets\\ui_font_hum.fcfg",
+  "size": 20,
+  "bpp": 1,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "湿度：",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}

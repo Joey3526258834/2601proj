@@ -1,0 +1,16 @@
+{
+  "codename": "smoke",
+  "ttf_path": "/assets/songti.ttf",
+  "bin_path": "/assets\\ui_font_smoke.bin",
+  "c_path": "/assets\\ui_font_smoke.c",
+  "cfg_path": "/assets\\ui_font_smoke.fcfg",
+  "size": 20,
+  "bpp": 1,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "烟雾浓度：",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}
