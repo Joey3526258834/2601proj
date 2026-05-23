@@ -1,1 +1,0 @@
-cmd_/home/linux/project_cy/demo_ko/demo_bh1750/bh1750_drv/bh1750_drv.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/linux/project_cy/demo_ko/demo_bh1750/bh1750_drv/bh1750_drv.ko /home/linux/project_cy/demo_ko/demo_bh1750/bh1750_drv/bh1750_drv.o /home/linux/project_cy/demo_ko/demo_bh1750/bh1750_drv/bh1750_drv.mod.o
