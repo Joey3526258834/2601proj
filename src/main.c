@@ -41,10 +41,11 @@ void *get_data_th(void *arg)
         	return NULL;
     	}
 		//data.tim = tmp_tm;
-		printf("time : %ld",data.tim.tm_year + 1900);
+		//printf("time : %ld",data.tim.tm_year + 1900);
 		send_msg(pmail,"get_data", data, "show_data");
 		send_msg(pmail,"get_data", data, "save_data");
 		send_msg(pmail,"get_data", data, "send_data");
+		printf("DEBUG get_data_th end\n");
 		sleep(1);
 	}
 	return NULL;
@@ -158,7 +159,7 @@ int main(int argc, const char *argv[])
 	register_thread_task(pmail, get_data_th, "get_data");
 
 	destroy_mailbox(pmail);
-
+	printf("DEBUG ----------main end\n");
 	return 0;
 }
 

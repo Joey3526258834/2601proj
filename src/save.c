@@ -96,7 +96,7 @@ void save_sqlite3(Que_Data_t data)
     sprintf(tim_buf,"%d-%d-%d %d:%d:%d",data.tim.tm_year + 1900,data.tim.tm_mon + 1,data.tim.tm_mday,data.tim.tm_hour,data.tim.tm_min,data.tim.tm_sec);
     //printf("time:%s\n",tim_buf);
     char sql_cmd[512]= {0};
-    sprintf(sql_cmd,"insert into demo_day%d values(%d,%f,%f,%f,%d,'%s','%s','%s');",num_day,data.id,data.temp,data.hum,data.light,data.smoke,tim_buf,data.sendname,data.recvname);//table name  info
+    sprintf(sql_cmd,"insert into demo_day%d values(%d,%f,%f,%f,%f,'%s','%s','%s');",num_day,data.id,data.temp,data.hum,data.light,data.smoke,tim_buf,data.sendname,data.recvname);//table name  info
     char * errmsg;
     ret = sqlite3_exec(db,sql_cmd,NULL,NULL,&errmsg);
     if(SQLITE_OK != ret)

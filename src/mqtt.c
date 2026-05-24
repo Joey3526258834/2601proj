@@ -8,8 +8,12 @@ volatile static MQTTClient_deliveryToken deliveredtoken;
 
 void pack_topic(char * dev_name, char * pro_id)
 {
-	sprintf(topic[0], "$sys/%s/%s/thing/property/post/reply", pro_id, dev_name);	//订阅
-	sprintf(topic[1], "$sys/%s/%s/thing/property/post", pro_id, dev_name);			//发布
+	int ret = snprintf(topic[0], sizeof(topic[0]), "$sys/%s/%s/thing/property/post/reply", pro_id, dev_name);//订阅
+	snprintf(topic[1], sizeof(topic[1]), "$sys/%s/%s/thing/property/post", pro_id, dev_name);//发布
+	if (ret >= sizeof(topic[0]))
+	{
+		printf("DEBUG topic[0] Segmentation fault\n");
+	}
 }
 
 // 发送成功后callback
@@ -94,7 +98,14 @@ int mqtt_send(char * key, float value)
     test2_pubmsg.retained = 0;
     test2_pubmsg.payload =message;
 
-	sprintf(message,"{\"id\":\"%d\",\"version\":\"1.0\",\"params\":{\"%s\":{\"value\":%f}}}",id++, key, value);
+	int ret = snprintf(message, sizeof(message),
+			"{\"id\":\"%d\",\"version\":\"1.0\",\"params\":{\"%s\":{\"value\":%f}}}",
+			id++, key, value);
+	if (ret >= sizeof(message))
+	{
+		printf("DEBUG message Segmentation fault\n");
+		return -1;
+	}
 	test2_pubmsg.payloadlen = strlen(message);
 
 	printf("%s\n",message);

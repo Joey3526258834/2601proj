@@ -65,6 +65,7 @@ int send_msg(Link_t *pmail, char *sendname, Que_Data_t data, char *recvname)
 {
 	strcpy(data.sendname, sendname);
 	strcpy(data.recvname, recvname);
+
 	printf("DEBUG send_msg\n");
 	Link_node_t *pnode = find_link(pmail, recvname);
 	if (NULL == pnode)
@@ -76,7 +77,7 @@ int send_msg(Link_t *pmail, char *sendname, Que_Data_t data, char *recvname)
 	push_queue(pnode->data.pque, data);
 	pthread_mutex_unlock(&(pnode->data.pque->mutex));
 	sem_post(&(pnode->data.pque->sem)); //+1
-
+	printf("DEBUG send_msg end\n");
 	return 0;
 }
 

@@ -7,7 +7,7 @@ pthread_mutex_t data_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 int get_data_dht11(Que_Data_t *pdata)
 {
-    printf("DEBUG custom_tick_get\n");
+    printf("DEBUG get_data_dht11 start\n");
     if (pdata == NULL)
     {
         printf("错误：pdata 是空指针\n");
@@ -34,14 +34,14 @@ int get_data_dht11(Que_Data_t *pdata)
         sprintf(buff, "%d.%d \n", buf[2], buf[3]);
         pdata->temp = atof(buff);
     }
-
+    printf("DEBUG get_data_dht11 end\n");
     close(fd);
     return 0;
 }
 
 int get_data_bh1750(Que_Data_t *pdata)
 {
-    printf("DEBUG get_data_bh1750\n");
+    printf("DEBUG get_data_bh1750 start\n");
     if (pdata == NULL)
     {
         printf("错误：pdata 是空指针\n");
@@ -59,7 +59,7 @@ int get_data_bh1750(Que_Data_t *pdata)
 
     read(fd, &data, sizeof(data));
     pdata->light = (data / 1.2);
-
+    printf("DEBUG get_data_bh1750 end\n");
     close(fd);
 
     return 0;
@@ -89,3 +89,24 @@ int sensor_mq135(Que_Data_t *pdata)
     
     return 0;
 }
+#if 0
+int sensor_mq135(Que_Data_t *pdata)
+{
+    int ret = 0;
+    printf("DEBUG sensor_mq135 start\n");
+    pthread_mutex_lock(&data_mutex);
+    ret = adc_read(&imx6ulladc);
+    if (ret == 0)
+    {
+        /* 数据读取成功 */
+        // printf("ADC 原始值：%d,电压值:%.3fV\r\n", imx6ulladc.raw, imx6ulladc.act);
+
+        pdata->smoke = imx6ulladc.act;
+    }
+    pthread_mutex_unlock(&data_mutex);
+    usleep(100000); /*100ms */
+    printf("DEBUG sensor_mq135 end\n");
+
+    return;
+}
+#endif
