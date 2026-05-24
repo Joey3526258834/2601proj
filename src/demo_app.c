@@ -107,6 +107,6 @@ int sensor_mq135(Que_Data_t *pdata)
     usleep(100000); /*100ms */
     printf("DEBUG sensor_mq135 end\n");
 
-    return;
+    return 0;
 }
 #endif

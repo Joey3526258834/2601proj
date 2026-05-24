@@ -22,6 +22,9 @@ extern "C" {
 #include "screens/ui_Screen2.h"
 #include "../..//include/list.h"
 #include "../../include/queue.h"
+
+void ui_Screen1_screen_init(void);
+
 ///////////////////// VARIABLES ////////////////////
 
 
@@ -39,7 +42,7 @@ LV_FONT_DECLARE(ui_font_eyes);
 LV_FONT_DECLARE(ui_font_back);
 
 // UI INIT
-extern void ui_init(Link_t *pmail);
+extern void ui_init(void);
 extern void ui_destroy(void);
 
 #ifdef __cplusplus

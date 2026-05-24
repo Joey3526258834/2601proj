@@ -19,6 +19,11 @@
 Link_t *pmail = NULL;
 #define DISP_BUF_SIZE (128 * 1024)
 
+extern lv_obj_t * ui_Label2;
+extern lv_obj_t * ui_Label3;
+extern lv_obj_t * ui_Label4;
+extern lv_obj_t * ui_Label5;
+
 void *get_data_th(void *arg)
 {
 	printf("DEBUG get_data_th\n");
@@ -44,7 +49,7 @@ void *get_data_th(void *arg)
 		//printf("time : %ld",data.tim.tm_year + 1900);
 		send_msg(pmail,"get_data", data, "show_data");
 		send_msg(pmail,"get_data", data, "save_data");
-		send_msg(pmail,"get_data", data, "send_data");
+		//send_msg(pmail,"get_data", data, "send_data");
 		printf("DEBUG get_data_th end\n");
 		sleep(1);
 	}
@@ -99,10 +104,22 @@ void *show_data_th(void *arg)
    
 
     /*Handle LitlevGL tasks (tickless mode)*/
-    while(1) {
-        ui_init(pmail);
-        
-		printf("show_data ok!\n");
+    ui_init();
+    while(1) 
+	{
+        if (recv_msg(pmail, &data) == 0)
+        {
+            char buf[100] = {0};
+            sprintf(buf,"温度：%.2f",data.temp);
+            lv_label_set_text(ui_Label2, buf);
+            sprintf(buf,"湿度：%.2f",data.hum);
+            lv_label_set_text(ui_Label3, buf);
+            sprintf(buf,"光照强度：%.2f",data.light);
+            lv_label_set_text(ui_Label4, buf);
+            sprintf(buf,"烟雾浓度：%f",data.smoke);
+            lv_label_set_text(ui_Label5, buf);
+		    printf("show_data ok!\n");
+        }
 		lv_timer_handler();
         usleep(5000);
     }
@@ -155,7 +172,7 @@ int main(int argc, const char *argv[])
 
 	register_thread_task(pmail, show_data_th, "show_data");
 	register_thread_task(pmail, save_data_th, "save_data");
-	register_thread_task(pmail, send_data_th, "send_data");
+	//register_thread_task(pmail, send_data_th, "send_data");
 	register_thread_task(pmail, get_data_th, "get_data");
 
 	destroy_mailbox(pmail);

@@ -25,11 +25,12 @@ void ui_event_Button1(lv_event_t * e)
 
 // build funtions
 
-void ui_Screen1_screen_init(Link_t *pmail)
+void ui_Screen1_screen_init(void)
 {
     printf("DEBUG ui_Screen1_screen_init\n");
     Que_Data_t data;
     char buf[100] = {0};
+    extern Link_t *pmail;
     recv_msg(pmail,&data);
     ui_Screen1 = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
