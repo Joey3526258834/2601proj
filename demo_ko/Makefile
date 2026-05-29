@@ -5,7 +5,7 @@
 # 原编译逻辑完全不变，执行make和之前效果一模一样
 # ------------------------------
 all:
-	make -C demo_adxl345
+	make -C demo_dht11
 	make -C demo_bh1750
 
 # ------------------------------
@@ -13,7 +13,7 @@ all:
 # ------------------------------
 clean:
 	# 1. 递归清理所有中间层子目录（会自动调用子目录的clean，再到最内层驱动）
-	make -C demo_adxl345 clean
+	make -C demo_dht11 clean
 	make -C demo_bh1750 clean
 	
 	# 2. 清理当前顶层demo_ko目录的所有内核编译垃圾文件
@@ -24,7 +24,7 @@ clean:
 # ------------------------------
 distclean: clean
 	# 递归执行所有子目录的彻底清理
-	make -C demo_adxl345 distclean
+	make -C demo_dht11 distclean
 	make -C demo_bh1750 distclean
 	
 	# 删除NFS根文件系统中所有的驱动模块文件（原bug修复：不再依赖未定义的modulename）
